@@ -16,6 +16,7 @@ def print_system_info():
 
 # 2. Check network connectivity
 def test_network_connectivity():
+    print('Test Changes!')
     try:
         response = requests.get("https://www.google.com", timeout=5)
         if response.status_code == 200:
