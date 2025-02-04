@@ -1,0 +1,42 @@
+name: Python CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main  # Triggers when changes are pushed to the main branch
+  pull_request:
+    branches:
+      - main  # Triggers on pull requests to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Runs on Ubuntu-based GitHub runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # Checkout your code
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x  # You can specify the version, like 3.8 or 3.9
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip  # Upgrade pip
+          pip install -r requirements.txt    # Install dependencies from requirements.txt
+
+      - name: Run script
+        run: |
+          python script.py  # Adjusting to run your script named 'script.py'
+
+      # Optional: Add tests if you decide to add them later
+      # - name: Run tests
+      #   run: |
+      #     pytest tests/  # Run tests (replace with your test framework if different)
+
+      # Optional: Deployment step
+      - name: Deploy (Optional)
+        run: |
+          # Add your deployment steps here, e.g., AWS CLI or other deployment tools
+          echo "Deploying application..."

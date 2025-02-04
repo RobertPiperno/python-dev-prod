@@ -4,11 +4,7 @@ docopt==0.6.2
 idna==3.10
 pipreqs==0.4.13
 psutil==6.1.1
-<<<<<<< HEAD
-Requests==2.32.3
-pytest
-=======
 requests==2.32.3
 urllib3==2.3.0
 yarg==0.1.10
->>>>>>> ae5e551 (Requirements updated)
+pytest==6.x.x
